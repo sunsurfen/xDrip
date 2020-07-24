@@ -8,6 +8,7 @@ buildscript {
     }
 }
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 //apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'io.fabric'
 
@@ -33,6 +34,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    mavenCentral()
 }
 
 def generateVersionNumber = { ->
@@ -333,6 +335,7 @@ dependencies {
     // use lombok in unit tests
     testCompileOnly 'org.projectlombok:lombok:1.18.10'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 tasks.withType(Test) { 
